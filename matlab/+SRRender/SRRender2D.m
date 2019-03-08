@@ -1,7 +1,7 @@
-% File: SRRender2D.m
+% File: SRRender.SRRender2D.m
 %
 % Mark J. Olah (mjo@cs.unm.edu)
-% 03/2015
+% 2014-2019
 %
 % A class for super-resolution rendering of gaussians and histrograms.  
 % We provide methods to render histograms and gaussians as a single 2D image or as a movie sequence of 
@@ -10,7 +10,7 @@
 % This class is a C++/Matlab hybrid using the MexIface class interface.  All computation is done in C++ in
 % parallel using openMP.
 
-classdef SRRender2D < IfaceMixin
+classdef SRRender2D < MexIFace.MexIFaceMixin
     %
     % * Units: The spatial units used are arbitrary and can be pixels, microns, nm, or whatever.  Just
     %          make sure the same "world" units are used consitently thoughout.
@@ -58,20 +58,20 @@ classdef SRRender2D < IfaceMixin
             end
             switch type
                 case 'double'
-                    iface=@SRRender2DDouble_Iface;
-                    datatype='double';
-                    datacaster=@double;
+                    iface = @SRRender2DDouble_IFace;
+                    datatype = 'double';
+                    datacaster = @double;
                 case 'single'
-                    iface=@SRRender2DSingle_Iface;
-                    datatype='single';
-                    datacaster=@single;
+                    iface = @SRRender2DSingle_IFace;
+                    datatype = 'single';
+                    datacaster = @single;
                 otherwise
                     error('SRRender2D:constructor','Unsupported type: %s', class(a));
             end
-            obj = obj@IfaceMixin(iface);
-            obj.datatype=datatype;
-            obj.datacaster=datacaster;
-            obj.ROI=obj.checkROI(roi);
+            obj = obj@MexIFace.MexIFaceMixin(iface);
+            obj.datatype = datatype;
+            obj.datacaster = datacaster;
+            obj.ROI = obj.checkROI(roi);
         end
         
         function [im, imCoords] = renderHist(obj, points, imSizePx, roi)
@@ -93,7 +93,7 @@ classdef SRRender2D < IfaceMixin
             points = obj.checkPoints(points);
             [im, imCoords] = obj.makeImage(imSizePx, roi);
             effectiveROI = obj.datacaster([imCoords.XWorldLimits, imCoords.YWorldLimits]);
-            obj.callstatic(obj.ifaceHandle,'renderHist', points, effectiveROI, im);
+            obj.callstatic('renderHist', points, effectiveROI, im);
         end
 
         function [im, imCoords] = renderGauss(obj, points, imSizePx, roi)
@@ -116,7 +116,7 @@ classdef SRRender2D < IfaceMixin
             points = obj.checkPoints(points);
             [im, imCoords] = obj.makeImage(imSizePx, roi);
             effectiveROI = obj.datacaster([imCoords.XWorldLimits, imCoords.YWorldLimits]);
-            obj.callstatic(obj.ifaceHandle,'renderGauss', points, effectiveROI, obj.sigmaAccuracy, im);
+            obj.callstatic('renderGauss', points, effectiveROI, obj.sigmaAccuracy, im);
         end
 
         function [im, imCoords] = renderHistMovie(obj, points, imSizePx, roi)
@@ -144,7 +144,7 @@ classdef SRRender2D < IfaceMixin
             [im, imCoords] = obj.makeImage(imSizePx, roi, nFrames);
             effectiveROI = obj.datacaster([imCoords.XWorldLimits, imCoords.YWorldLimits]);
             points(:,6) = points(:,6) -1; %Convert to 0-based indexing for C++
-            obj.callstatic(obj.ifaceHandle,'renderHistMovie', points, effectiveROI, im);
+            obj.callstatic('renderHistMovie', points, effectiveROI, im);
         end
 
         function [im, imCoords] = renderGaussMovie(obj, points, imSizePx, roi)
@@ -171,7 +171,7 @@ classdef SRRender2D < IfaceMixin
             [im, imCoords] = obj.makeImage(imSizePx, roi, nFrames);
             effectiveROI = obj.datacaster([imCoords.XWorldLimits, imCoords.YWorldLimits]);
             points(:,6) = points(:,6) -1; %Convert to 0-based indexing for C++
-            obj.callstatic(obj.ifaceHandle,'renderGaussMovie', points, effectiveROI, im);
+            obj.callstatic('renderGaussMovie', points, effectiveROI, im);
         end
     end %public methods
 
@@ -230,7 +230,7 @@ classdef SRRender2D < IfaceMixin
         function points = simulateData(roi, nPoints, meanSigma)
             intensities = rand(nPoints,1)+1;
             pos = SRRender2D.makeTestGrid(roi,nPoints);
-            sigmas = gamrnd(4,meanSigma/4,nPoints,2);
+            sigmas = normrnd(meanSigma,meanSigma/10,nPoints,2);
             points = single([intensities, pos, sigmas]);
         end
 
@@ -238,7 +238,7 @@ classdef SRRender2D < IfaceMixin
             points=zeros(nPoints*nFrames, 6, 'single');
             for n = 1:nFrames
                 intensities = rand(nPoints,1)+1;
-                pos = SRRender2D.makeTestGrid(roi,nPoints);
+                pos = SRRender.SRRender2D.makeTestGrid(roi,nPoints);
                 sigmas = gamrnd(4,meanSigma/4,nPoints,2);
                 frameIdxs = n*ones(nPoints,1);
                 points((n-1)*nPoints+(1:nPoints),:) = [intensities, pos, sigmas, frameIdxs];
@@ -254,10 +254,10 @@ classdef SRRender2D < IfaceMixin
             movieSizePx = 4096; %number of picels along longest edge in resulting images
     
             %Make a new SRRender object
-            srr = SRRender2D(roi);     
+            srr = SRRender.SRRender2D(roi);     
             %Simualate points wich include a frameIdx column suitable for movie plots
             tic;
-            points = SRRender2D.simulateMovieData(roi, nPoints, nFrames, meanSigma);
+            points = SRRender.SRRender2D.simulateMovieData(roi, nPoints, nFrames, meanSigma);
             tPoints = size(points,1);
             fprintf('Simulate N=%i points. Time:%.5fs\n',tPoints, toc);
             %Single histogram image

@@ -1,8 +1,9 @@
-#include "srrender.h"
+#include "SRRender/SRRender.h"
 #include <random>
 
 using namespace arma;
 using namespace std;
+using namespace srrender;
 
 void test2D()
 {

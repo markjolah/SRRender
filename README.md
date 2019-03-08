@@ -1,5 +1,5 @@
 # SRRender
 
-A super-resolution microscopy rendering tool for Matlab and C++.
+Super-resolution microscopy parallel rendering tool for Matlab and C++.
 
 
