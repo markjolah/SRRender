@@ -1,0 +1,141 @@
+\hypertarget{classsrrender_1_1SRRender2D}{}\subsection{srrender\+:\+:S\+R\+Render2D$<$ FloatT, IdxT $>$ Class Template Reference}
+\label{classsrrender_1_1SRRender2D}\index{srrender\+::\+S\+R\+Render2\+D$<$ Float\+T, Idx\+T $>$@{srrender\+::\+S\+R\+Render2\+D$<$ Float\+T, Idx\+T $>$}}
+
+
+{\ttfamily \#include $<$/home/travis/build/markjolah/\+S\+R\+Render/include/\+S\+R\+Render/\+S\+R\+Render.\+h$>$}
+
+\subsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{classsrrender_1_1SRRender2D_abf2e65ab6bcf77af73d3988cc3d457b9}{I\+VecT} = arma\+::\+Col$<$ IdxT $>$
+\item 
+using \hyperlink{classsrrender_1_1SRRender2D_ab2b17bb30a0f86d610ef90e2e8e97e25}{VecT} = arma\+::\+Col$<$ FloatT $>$
+\item 
+using \hyperlink{classsrrender_1_1SRRender2D_a84ba69a439ee39a97bb8fed4eebac011}{ImageT} = arma\+::\+Mat$<$ FloatT $>$
+\item 
+using \hyperlink{classsrrender_1_1SRRender2D_a884febde0e56f7e07fd470f2498eadbd}{MovieT} = arma\+::\+Cube$<$ FloatT $>$
+\item 
+using \hyperlink{classsrrender_1_1SRRender2D_ac2433ed86b4b21ff082ba8c2a080e26a}{Emitter\+VecT} = arma\+::\+Mat$<$ FloatT $>$
+\end{DoxyCompactItemize}
+\subsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classsrrender_1_1SRRender2D_a2e1dcc7e39a16514a4b3f1226c0610f5}{render\+Hist} (const \hyperlink{classsrrender_1_1SRRender2D_ac2433ed86b4b21ff082ba8c2a080e26a}{Emitter\+VecT} \&points, const \hyperlink{classsrrender_1_1SRRender2D_ab2b17bb30a0f86d610ef90e2e8e97e25}{VecT} \&roi, \hyperlink{classsrrender_1_1SRRender2D_a84ba69a439ee39a97bb8fed4eebac011}{ImageT} \&im)
+\item 
+static void \hyperlink{classsrrender_1_1SRRender2D_ac3b2d60e4a9d86950938db63a57b5639}{render\+Gauss} (const \hyperlink{classsrrender_1_1SRRender2D_ac2433ed86b4b21ff082ba8c2a080e26a}{Emitter\+VecT} \&points, const \hyperlink{classsrrender_1_1SRRender2D_ab2b17bb30a0f86d610ef90e2e8e97e25}{VecT} \&roi, \hyperlink{classsrrender_1_1SRRender2D_a84ba69a439ee39a97bb8fed4eebac011}{ImageT} \&im, FloatT sigma\+Accuracy=\hyperlink{classsrrender_1_1SRRender2D_ac1a7fcf709ff55bf7b70e91fff12cce8}{Default\+Sigma\+Accuracy})
+\item 
+static void \hyperlink{classsrrender_1_1SRRender2D_a8d72c884651325fdf6afa19ad025a877}{render\+Hist\+Movie} (const \hyperlink{classsrrender_1_1SRRender2D_ac2433ed86b4b21ff082ba8c2a080e26a}{Emitter\+VecT} \&points, const \hyperlink{classsrrender_1_1SRRender2D_ab2b17bb30a0f86d610ef90e2e8e97e25}{VecT} \&roi, \hyperlink{classsrrender_1_1SRRender2D_a884febde0e56f7e07fd470f2498eadbd}{MovieT} \&im)
+\item 
+static void \hyperlink{classsrrender_1_1SRRender2D_ae392b80afdf6dee6d85dd84343dfa7e6}{render\+Gauss\+Movie} (const \hyperlink{classsrrender_1_1SRRender2D_ac2433ed86b4b21ff082ba8c2a080e26a}{Emitter\+VecT} \&points, const \hyperlink{classsrrender_1_1SRRender2D_ab2b17bb30a0f86d610ef90e2e8e97e25}{VecT} \&roi, \hyperlink{classsrrender_1_1SRRender2D_a884febde0e56f7e07fd470f2498eadbd}{MovieT} \&im, FloatT sigma\+Accuracy=\hyperlink{classsrrender_1_1SRRender2D_ac1a7fcf709ff55bf7b70e91fff12cce8}{Default\+Sigma\+Accuracy})
+\end{DoxyCompactItemize}
+\subsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const FloatT \hyperlink{classsrrender_1_1SRRender2D_ac1a7fcf709ff55bf7b70e91fff12cce8}{Default\+Sigma\+Accuracy}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\subsubsection*{template$<$class FloatT = float, class IdxT = uint32\+\_\+t$>$\\*
+class srrender\+::\+S\+R\+Render2\+D$<$ Float\+T, Idx\+T $>$}
+
+Points format. Row-\/oriented each row is a point, each column is a property 2D render\+Hist Columns\+: \mbox{[}I X Y\mbox{]} 2D render\+Gauss Columns\+:\mbox{[}I X Y sigmaX sigmaY\mbox{]} 2D render\+Hist\+Movie Columns\+: \mbox{[}I X Y Frame\mbox{]} -\/ Frame is 0-\/indexed 2D render\+Gauss\+Movie Columns\+:\mbox{[}I X Y sigmaX sigmaY Frame\mbox{]} -\/ Frame is 0-\/indexed
+
+The \textquotesingle{}size\textquotesingle{} parameter gives the size of the entire field of view to be rendered in units corresponding to the points format vectors. 
+
+Definition at line 32 of file S\+R\+Render.\+h.
+
+
+
+\subsubsection{Member Typedef Documentation}
+\index{srrender\+::\+S\+R\+Render2D@{srrender\+::\+S\+R\+Render2D}!Emitter\+VecT@{Emitter\+VecT}}
+\index{Emitter\+VecT@{Emitter\+VecT}!srrender\+::\+S\+R\+Render2D@{srrender\+::\+S\+R\+Render2D}}
+\paragraph[{\texorpdfstring{Emitter\+VecT}{EmitterVecT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class FloatT  = float, class IdxT  = uint32\+\_\+t$>$ using {\bf srrender\+::\+S\+R\+Render2D}$<$ FloatT, IdxT $>$\+::{\bf Emitter\+VecT} =  arma\+::\+Mat$<$FloatT$>$}\hypertarget{classsrrender_1_1SRRender2D_ac2433ed86b4b21ff082ba8c2a080e26a}{}\label{classsrrender_1_1SRRender2D_ac2433ed86b4b21ff082ba8c2a080e26a}
+
+
+Definition at line 38 of file S\+R\+Render.\+h.
+
+\index{srrender\+::\+S\+R\+Render2D@{srrender\+::\+S\+R\+Render2D}!ImageT@{ImageT}}
+\index{ImageT@{ImageT}!srrender\+::\+S\+R\+Render2D@{srrender\+::\+S\+R\+Render2D}}
+\paragraph[{\texorpdfstring{ImageT}{ImageT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class FloatT  = float, class IdxT  = uint32\+\_\+t$>$ using {\bf srrender\+::\+S\+R\+Render2D}$<$ FloatT, IdxT $>$\+::{\bf ImageT} =  arma\+::\+Mat$<$FloatT$>$}\hypertarget{classsrrender_1_1SRRender2D_a84ba69a439ee39a97bb8fed4eebac011}{}\label{classsrrender_1_1SRRender2D_a84ba69a439ee39a97bb8fed4eebac011}
+
+
+Definition at line 36 of file S\+R\+Render.\+h.
+
+\index{srrender\+::\+S\+R\+Render2D@{srrender\+::\+S\+R\+Render2D}!I\+VecT@{I\+VecT}}
+\index{I\+VecT@{I\+VecT}!srrender\+::\+S\+R\+Render2D@{srrender\+::\+S\+R\+Render2D}}
+\paragraph[{\texorpdfstring{I\+VecT}{IVecT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class FloatT  = float, class IdxT  = uint32\+\_\+t$>$ using {\bf srrender\+::\+S\+R\+Render2D}$<$ FloatT, IdxT $>$\+::{\bf I\+VecT} =  arma\+::\+Col$<$IdxT$>$}\hypertarget{classsrrender_1_1SRRender2D_abf2e65ab6bcf77af73d3988cc3d457b9}{}\label{classsrrender_1_1SRRender2D_abf2e65ab6bcf77af73d3988cc3d457b9}
+
+
+Definition at line 34 of file S\+R\+Render.\+h.
+
+\index{srrender\+::\+S\+R\+Render2D@{srrender\+::\+S\+R\+Render2D}!MovieT@{MovieT}}
+\index{MovieT@{MovieT}!srrender\+::\+S\+R\+Render2D@{srrender\+::\+S\+R\+Render2D}}
+\paragraph[{\texorpdfstring{MovieT}{MovieT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class FloatT  = float, class IdxT  = uint32\+\_\+t$>$ using {\bf srrender\+::\+S\+R\+Render2D}$<$ FloatT, IdxT $>$\+::{\bf MovieT} =  arma\+::\+Cube$<$FloatT$>$}\hypertarget{classsrrender_1_1SRRender2D_a884febde0e56f7e07fd470f2498eadbd}{}\label{classsrrender_1_1SRRender2D_a884febde0e56f7e07fd470f2498eadbd}
+
+
+Definition at line 37 of file S\+R\+Render.\+h.
+
+\index{srrender\+::\+S\+R\+Render2D@{srrender\+::\+S\+R\+Render2D}!VecT@{VecT}}
+\index{VecT@{VecT}!srrender\+::\+S\+R\+Render2D@{srrender\+::\+S\+R\+Render2D}}
+\paragraph[{\texorpdfstring{VecT}{VecT}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class FloatT  = float, class IdxT  = uint32\+\_\+t$>$ using {\bf srrender\+::\+S\+R\+Render2D}$<$ FloatT, IdxT $>$\+::{\bf VecT} =  arma\+::\+Col$<$FloatT$>$}\hypertarget{classsrrender_1_1SRRender2D_ab2b17bb30a0f86d610ef90e2e8e97e25}{}\label{classsrrender_1_1SRRender2D_ab2b17bb30a0f86d610ef90e2e8e97e25}
+
+
+Definition at line 35 of file S\+R\+Render.\+h.
+
+
+
+\subsubsection{Member Function Documentation}
+\index{srrender\+::\+S\+R\+Render2D@{srrender\+::\+S\+R\+Render2D}!render\+Gauss@{render\+Gauss}}
+\index{render\+Gauss@{render\+Gauss}!srrender\+::\+S\+R\+Render2D@{srrender\+::\+S\+R\+Render2D}}
+\paragraph[{\texorpdfstring{render\+Gauss(const Emitter\+Vec\+T \&points, const Vec\+T \&roi, Image\+T \&im, Float\+T sigma\+Accuracy=\+Default\+Sigma\+Accuracy)}{renderGauss(const EmitterVecT &points, const VecT &roi, ImageT &im, FloatT sigmaAccuracy=DefaultSigmaAccuracy)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class FloatT  = float, class IdxT  = uint32\+\_\+t$>$ static void {\bf srrender\+::\+S\+R\+Render2D}$<$ FloatT, IdxT $>$\+::render\+Gauss (
+\begin{DoxyParamCaption}
+\item[{const {\bf Emitter\+VecT} \&}]{points, }
+\item[{const {\bf VecT} \&}]{roi, }
+\item[{{\bf ImageT} \&}]{im, }
+\item[{FloatT}]{sigma\+Accuracy = {\ttfamily {\bf Default\+Sigma\+Accuracy}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classsrrender_1_1SRRender2D_ac3b2d60e4a9d86950938db63a57b5639}{}\label{classsrrender_1_1SRRender2D_ac3b2d60e4a9d86950938db63a57b5639}
+\index{srrender\+::\+S\+R\+Render2D@{srrender\+::\+S\+R\+Render2D}!render\+Gauss\+Movie@{render\+Gauss\+Movie}}
+\index{render\+Gauss\+Movie@{render\+Gauss\+Movie}!srrender\+::\+S\+R\+Render2D@{srrender\+::\+S\+R\+Render2D}}
+\paragraph[{\texorpdfstring{render\+Gauss\+Movie(const Emitter\+Vec\+T \&points, const Vec\+T \&roi, Movie\+T \&im, Float\+T sigma\+Accuracy=\+Default\+Sigma\+Accuracy)}{renderGaussMovie(const EmitterVecT &points, const VecT &roi, MovieT &im, FloatT sigmaAccuracy=DefaultSigmaAccuracy)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class FloatT  = float, class IdxT  = uint32\+\_\+t$>$ static void {\bf srrender\+::\+S\+R\+Render2D}$<$ FloatT, IdxT $>$\+::render\+Gauss\+Movie (
+\begin{DoxyParamCaption}
+\item[{const {\bf Emitter\+VecT} \&}]{points, }
+\item[{const {\bf VecT} \&}]{roi, }
+\item[{{\bf MovieT} \&}]{im, }
+\item[{FloatT}]{sigma\+Accuracy = {\ttfamily {\bf Default\+Sigma\+Accuracy}}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classsrrender_1_1SRRender2D_ae392b80afdf6dee6d85dd84343dfa7e6}{}\label{classsrrender_1_1SRRender2D_ae392b80afdf6dee6d85dd84343dfa7e6}
+\index{srrender\+::\+S\+R\+Render2D@{srrender\+::\+S\+R\+Render2D}!render\+Hist@{render\+Hist}}
+\index{render\+Hist@{render\+Hist}!srrender\+::\+S\+R\+Render2D@{srrender\+::\+S\+R\+Render2D}}
+\paragraph[{\texorpdfstring{render\+Hist(const Emitter\+Vec\+T \&points, const Vec\+T \&roi, Image\+T \&im)}{renderHist(const EmitterVecT &points, const VecT &roi, ImageT &im)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class FloatT  = float, class IdxT  = uint32\+\_\+t$>$ static void {\bf srrender\+::\+S\+R\+Render2D}$<$ FloatT, IdxT $>$\+::render\+Hist (
+\begin{DoxyParamCaption}
+\item[{const {\bf Emitter\+VecT} \&}]{points, }
+\item[{const {\bf VecT} \&}]{roi, }
+\item[{{\bf ImageT} \&}]{im}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classsrrender_1_1SRRender2D_a2e1dcc7e39a16514a4b3f1226c0610f5}{}\label{classsrrender_1_1SRRender2D_a2e1dcc7e39a16514a4b3f1226c0610f5}
+\index{srrender\+::\+S\+R\+Render2D@{srrender\+::\+S\+R\+Render2D}!render\+Hist\+Movie@{render\+Hist\+Movie}}
+\index{render\+Hist\+Movie@{render\+Hist\+Movie}!srrender\+::\+S\+R\+Render2D@{srrender\+::\+S\+R\+Render2D}}
+\paragraph[{\texorpdfstring{render\+Hist\+Movie(const Emitter\+Vec\+T \&points, const Vec\+T \&roi, Movie\+T \&im)}{renderHistMovie(const EmitterVecT &points, const VecT &roi, MovieT &im)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class FloatT  = float, class IdxT  = uint32\+\_\+t$>$ static void {\bf srrender\+::\+S\+R\+Render2D}$<$ FloatT, IdxT $>$\+::render\+Hist\+Movie (
+\begin{DoxyParamCaption}
+\item[{const {\bf Emitter\+VecT} \&}]{points, }
+\item[{const {\bf VecT} \&}]{roi, }
+\item[{{\bf MovieT} \&}]{im}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classsrrender_1_1SRRender2D_a8d72c884651325fdf6afa19ad025a877}{}\label{classsrrender_1_1SRRender2D_a8d72c884651325fdf6afa19ad025a877}
+
+
+\subsubsection{Member Data Documentation}
+\index{srrender\+::\+S\+R\+Render2D@{srrender\+::\+S\+R\+Render2D}!Default\+Sigma\+Accuracy@{Default\+Sigma\+Accuracy}}
+\index{Default\+Sigma\+Accuracy@{Default\+Sigma\+Accuracy}!srrender\+::\+S\+R\+Render2D@{srrender\+::\+S\+R\+Render2D}}
+\paragraph[{\texorpdfstring{Default\+Sigma\+Accuracy}{DefaultSigmaAccuracy}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class FloatT  = float, class IdxT  = uint32\+\_\+t$>$ const FloatT {\bf srrender\+::\+S\+R\+Render2D}$<$ FloatT, IdxT $>$\+::Default\+Sigma\+Accuracy\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classsrrender_1_1SRRender2D_ac1a7fcf709ff55bf7b70e91fff12cce8}{}\label{classsrrender_1_1SRRender2D_ac1a7fcf709ff55bf7b70e91fff12cce8}
+
+
+Definition at line 39 of file S\+R\+Render.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{SRRender_8h}{S\+R\+Render.\+h}\end{DoxyCompactItemize}

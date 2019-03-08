@@ -1,0 +1,61 @@
+\begin{theindex}
+
+  \item {Default\+Sigma\+Accuracy}
+    \subitem {srrender\+::\+S\+R\+Render2D}, \hyperpage{5}
+
+  \indexspace
+
+  \item {Emitter\+VecT}
+    \subitem {srrender\+::\+S\+R\+Render2D}, \hyperpage{4}
+
+  \indexspace
+
+  \item {I\+VecT}
+    \subitem {srrender\+::\+S\+R\+Render2D}, \hyperpage{4}
+  \item {ImageT}
+    \subitem {srrender\+::\+S\+R\+Render2D}, \hyperpage{4}
+
+  \indexspace
+
+  \item {MovieT}
+    \subitem {srrender\+::\+S\+R\+Render2D}, \hyperpage{4}
+
+  \indexspace
+
+  \item {R\+E\+A\+D\+M\+E.\+md}, \hyperpage{5}
+  \item {render\+Gauss}
+    \subitem {srrender\+::\+S\+R\+Render2D}, \hyperpage{5}
+  \item {render\+Gauss\+Movie}
+    \subitem {srrender\+::\+S\+R\+Render2D}, \hyperpage{5}
+  \item {render\+Hist}
+    \subitem {srrender\+::\+S\+R\+Render2D}, \hyperpage{5}
+  \item {render\+Hist\+Movie}
+    \subitem {srrender\+::\+S\+R\+Render2D}, \hyperpage{5}
+
+  \indexspace
+
+  \item {S\+R\+Render.\+h}, \hyperpage{5}
+  \item {S\+R\+Render\+Error}
+    \subitem {srrender}, \hyperpage{3}
+  \item {srrender}, \hyperpage{2}
+    \subitem {S\+R\+Render\+Error}, \hyperpage{3}
+  \item {srrender\+::\+S\+R\+Render2\+D$<$ Float\+T, Idx\+T $>$}, 
+		\hyperpage{3}
+  \item {srrender\+::\+S\+R\+Render2D}
+    \subitem {Default\+Sigma\+Accuracy}, \hyperpage{5}
+    \subitem {Emitter\+VecT}, \hyperpage{4}
+    \subitem {I\+VecT}, \hyperpage{4}
+    \subitem {ImageT}, \hyperpage{4}
+    \subitem {MovieT}, \hyperpage{4}
+    \subitem {render\+Gauss}, \hyperpage{5}
+    \subitem {render\+Gauss\+Movie}, \hyperpage{5}
+    \subitem {render\+Hist}, \hyperpage{5}
+    \subitem {render\+Hist\+Movie}, \hyperpage{5}
+    \subitem {VecT}, \hyperpage{4}
+
+  \indexspace
+
+  \item {VecT}
+    \subitem {srrender\+::\+S\+R\+Render2D}, \hyperpage{4}
+
+\end{theindex}
