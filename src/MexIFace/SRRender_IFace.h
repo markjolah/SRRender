@@ -16,8 +16,8 @@
 #include "SRRender/SRRender.h"
 
 template<class FloatT=float, class IndexT=uint32_t>
-class SRRender2D_IFace: public mexiface::MexIFace,
-                        public mexiface::MexIFaceHandler<srrender::SRRender2D<FloatT,IndexT>>
+class SRRender2D_IFace : public mexiface::MexIFace,
+                         public mexiface::MexIFaceHandler<srrender::SRRender2D<FloatT,IndexT>>
 {
 public:
     SRRender2D_IFace();

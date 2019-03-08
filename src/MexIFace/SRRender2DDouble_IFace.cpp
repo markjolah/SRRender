@@ -6,7 +6,7 @@
  */
 #include "SRRender_IFace.h"
 
-SRRender2D_IFace<double,uint32_t> iface; /**< Global iface object provides a iface.mexFunction */
+SRRender2D_IFace<double,uint32_t> iface; //!< Global iface object provides a iface.mexFunction
 
 void mexFunction(int nlhs, mxArray *lhs[], int nrhs, const mxArray *rhs[])
 {
